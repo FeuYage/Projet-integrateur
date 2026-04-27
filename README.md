@@ -73,7 +73,7 @@ Voir section "Codes" pour visionner les codes nécessaire au fonctionnement du p
 - L'utilisateur n'a pas d'accès aux éléments de débuggages.
 
 ### Pour un developpeur
-- Mettre le jumper sur les broches BOOT du PCB pour entrer dans le mode de démarrage programmation.
+- Mettre le jumper sur les broches BOOT du PCB pour entrer dans le mode de démarrage programmation par USB OU, Brancher le port JTAG pour programmation.
 - Programmation faite par l'intermédiaire du port USB-C ou JTAG du PCB fait par les étudiants et en passent par la logiciel CUBEIDE pour modification du code accessible dans la section STM32.
 - Plusieurs éléments de débuggages sont présent sur le PCB pour diagnostiquer toutes erreurs possibles.  Les dels servent pour la vérification de l'alimentation avec les points de test et des broches Arduino sont accessible pour analyse avec un analyseur logique.
 - Il est également possible d'ajouter de nouvelles fonctionalités à l'interface en modifiant le code dans la section Rasberry Pi du GitHub.
