@@ -63,7 +63,7 @@ Voir section "Codes" pour visionner les codes nécessaire au fonctionnement du p
 
 
 ### Tests/validation
-[Plan_Test](C:\Users\AraGr\OneDrive\Bureau\Cegep\Cegep Session 4\Projet integrateur 2\Projet trotinette\Projet-integrateur\PCB\Plan de test\PDT_Trotinette_JR_AM.xlsx)
+[Plan_Test](https://github.com/FeuYage/Projet-integrateur/tree/main/PCB/Plan%20de%20test)
 
 ## Utilisation
 
