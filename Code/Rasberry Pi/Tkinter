@@ -12,7 +12,7 @@ class ScooterDashboard(ctk.CTk):
         self.geometry("800x480")
 
         # UART
-        self.ser = serial.Serial('/dev/serial0', 115200, timeout=1)
+        self.ser = serial.Serial('/dev/ttyAMA0', 115200, timeout=1)
 
         # Grille principale
         self.grid_columnconfigure((0, 1, 2), weight=1)
