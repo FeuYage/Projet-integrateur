@@ -5,48 +5,41 @@ import json
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
-
 class ScooterDashboard(ctk.CTk):
     def __init__(self):
         super().__init__()
-
         self.title("Projet intégrateur")
         self.geometry("800x480")
 
         # UART
         self.ser = serial.Serial('/dev/serial0', 115200, timeout=1)
 
-        # Grille principale 
+        # Grille principale
         self.grid_columnconfigure((0, 1, 2), weight=1)
         self.grid_rowconfigure((0, 1), weight=1)
 
         # Vitesse
         self.speed_frame = ctk.CTkFrame(self, corner_radius=15)
         self.speed_frame.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
-
         self.lbl_speed = ctk.CTkLabel(self.speed_frame, text="0", font=("Arial", 80, "bold"))
         self.lbl_speed.pack(expand=True)
         ctk.CTkLabel(self.speed_frame, text="km/h", font=("Arial", 20)).pack()
 
-        # Batterie 
+        # Batterie
         self.bat_frame = ctk.CTkFrame(self, corner_radius=15)
         self.bat_frame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
-
         ctk.CTkLabel(self.bat_frame, text="BATTERIE", font=("Arial", 14, "bold")).pack(pady=10)
         self.prog_bar = ctk.CTkProgressBar(self.bat_frame, orientation="vertical", width=25)
         self.prog_bar.pack(expand=True, pady=10)
         self.prog_bar.set(1)
-
         self.lbl_bat = ctk.CTkLabel(self.bat_frame, text="100%", font=("Arial", 18))
         self.lbl_bat.pack(pady=10)
 
         # Indicateurs
         self.status_frame = ctk.CTkFrame(self, corner_radius=15)
         self.status_frame.grid(row=0, column=2, padx=20, pady=20, sticky="nsew")
-
         self.led_light = ctk.CTkLabel(self.status_frame, text="◉ ÉCLAIRAGE", text_color="gray")
         self.led_light.pack(expand=True)
-
         self.led_brake = ctk.CTkLabel(self.status_frame, text="◉ FREIN", text_color="gray")
         self.led_brake.pack(expand=True)
 
@@ -54,10 +47,8 @@ class ScooterDashboard(ctk.CTk):
         self.tech_frame = ctk.CTkFrame(self, corner_radius=15, fg_color="transparent")
         self.tech_frame.grid(row=1, column=0, columnspan=3, padx=20, pady=10, sticky="nsew")
         self.tech_frame.grid_columnconfigure((0, 1), weight=1)
-
         self.lbl_temp = ctk.CTkLabel(self.tech_frame, text="Temp: -- °C", font=("Arial", 22))
         self.lbl_temp.grid(row=0, column=0)
-
         self.lbl_current = ctk.CTkLabel(self.tech_frame, text="Courant: -- A", font=("Arial", 22))
         self.lbl_current.grid(row=0, column=1)
 
@@ -66,10 +57,8 @@ class ScooterDashboard(ctk.CTk):
     def update_dashboard(self):
         try:
             line = self.ser.readline().decode(errors='ignore').strip()
-
             if line:
                 data = json.loads(line)
-
                 vitesse = data.get("speed", 0)
                 batterie = data.get("battery", 0) / 100
                 temp = data.get("temp", 0)
@@ -77,13 +66,11 @@ class ScooterDashboard(ctk.CTk):
                 is_light_on = data.get("light", 0)
                 is_braking = data.get("brake", 0)
 
-                # UI update
                 self.lbl_speed.configure(text=f"{vitesse:.1f}")
                 self.prog_bar.set(batterie)
                 self.lbl_bat.configure(text=f"{int(batterie*100)}%")
                 self.lbl_temp.configure(text=f"Temp: {temp:.1f}°C")
                 self.lbl_current.configure(text=f"Courant: {courant:.1f}A")
-
                 self.led_light.configure(text_color="yellow" if is_light_on else "gray")
                 self.led_brake.configure(text_color="red" if is_braking else "gray")
 
@@ -91,7 +78,6 @@ class ScooterDashboard(ctk.CTk):
             print("Erreur UART:", e)
 
         self.after(200, self.update_dashboard)
-
 
 if __name__ == "__main__":
     app = ScooterDashboard()
