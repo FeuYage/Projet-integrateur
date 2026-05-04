@@ -59,13 +59,20 @@ class ScooterDashboard(ctk.CTk):
             line = self.ser.readline().decode(errors='ignore').strip()
             if line:
                 data = json.loads(line)
-                vitesse = data.get("speed", 0)
-                batterie = data.get("battery", 0) / 100
-                temp = data.get("temp", 0)
-                courant = data.get("current", 0)
-                is_light_on = data.get("light", 0)
-                is_braking = data.get("brake", 0)
 
+                # Sous-objets
+                ctrl = data.get("ctrl", {})
+                drive = data.get("drive", {})
+
+                # Extraction des valeurs
+                vitesse = drive.get("speed", 0)
+                batterie = drive.get("battery_percentage", 0) / 100
+                temp = drive.get("temperature", 0)
+                courant = drive.get("motor_current", 0)
+                is_light_on = ctrl.get("light_active", 0)
+                is_braking = ctrl.get("break_active", 0)
+
+                # UI update
                 self.lbl_speed.configure(text=f"{vitesse:.1f}")
                 self.prog_bar.set(batterie)
                 self.lbl_bat.configure(text=f"{int(batterie*100)}%")
