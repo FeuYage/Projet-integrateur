@@ -63,7 +63,11 @@ Voir section "Codes" pour visionner les codes nécessaire au fonctionnement du p
 
 
 ### Tests/validation
+<<<<<<< Updated upstream
 [Plan de test]("C:\Users\AraGr\OneDrive\Bureau\Cegep\Cegep Session 4\Projet integrateur 2\Projet trotinette\Projet-integrateur\PCB\Plan de test\PDT_Trotinette_JR_AM.xlsx")
+=======
+[Plan de test](<c:\Users\AraGr\OneDrive\Bureau\Cegep\Cegep Session 4\Projet integrateur 2\Projet trotinette\Projet-integrateur\PCB\Plan de test\PDT_Trotinette_JR_AM.xlsx)
+>>>>>>> Stashed changes
 
 ## Utilisation
 
