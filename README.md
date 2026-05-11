@@ -3,7 +3,7 @@
 Ce projet est concu conjointement par Jérémy Roy, Arthur Méot, l'équipe professorale du 
 Cégep de Sherbrooke et Écomobilité Sherbrooke par l'intermédiaire de M.Gauthier
 
-Ce projet consiste à la création d'un tableau de bord à l'aide d'un PCB de notre conception faisant
+L'objectif est la création d'un tableau de bord à l'aide d'un PCB de notre conception faisant
 le lien entre le controlleur d'une trottinette électrique et un Rasberry Pi 3 servant à l'affichage sur un 
 écran HDMI.
 
