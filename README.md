@@ -82,6 +82,4 @@ Voir section "Codes" pour visionner les codes nécessaire au fonctionnement du p
 - Ajout d'une centrale inertielle pour sécurité aditionnelle.
 - Conception d'un boitier fermé pour fixation sur guidon.
 - Ajout d'un régulateur 12V pour permettre l'alimentation par le controlleur de la trottinette.
-- Finalisation du code
-- Test d'intégration
-- Préparation présentation
+- Conversion du code pour communication avec interrupts.
